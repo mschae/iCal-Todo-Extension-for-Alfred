@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>action</key>
+	<false/>
+	<key>background</key>
+	<false/>
+	<key>category</key>
+	<string>APPLESCRIPTS</string>
+	<key>command</key>
+	<string>on alfred_script(q)	tell application "iCal"		set newtodo to (make new todo at end of todos of calendar "Erinnerungen")		tell newtodo			if "!!!" is in q then				set priority to high priority			else if "!!" is in q then				set priority to medium priority			else if "!" is in q then				set priority to low priority			end if						set asid to AppleScript's text item delimiters			set AppleScript's text item delimiters to {"!"}			set textItems to text items of q			set AppleScript's text item delimiters to asid			set todoSummary to textItems as string			set summary to todoSummary		end tell	end tellend alfred_script</string>
+	<key>disabled</key>
+	<false/>
+	<key>keyword</key>
+	<string>todo</string>
+	<key>parameter</key>
+	<integer>2</integer>
+	<key>subtitle</key>
+	<string>Creates a new ToDo in iCal</string>
+	<key>title</key>
+	<string>Todo</string>
+</dict>
+</plist>
